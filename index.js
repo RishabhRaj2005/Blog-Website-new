@@ -25,18 +25,19 @@ app.post("/post",(req,res)=>{
 })
 
 app.get("/delete",(req,res)=>{
-    res.render("delete.ejs");
+    res.render("delete.ejs",{t:title , b:blog});
 });
 
 app.post("/delete",(req,res)=>{
-    var toDel = req.body["title"];
-    var f=0;
-    for(var i=0;i<(title.length-1);i++){
+    var toDel = req.body["dTitle"];
+    var flag=0;
+    for(var i=0;i<title.length-1;i++){
         if(title[i]===toDel){
-            f=1;
+            flag=1;
         }
-        if(f===1){
+        if(flag===1){
             title[i]=title[i+1];
+            blog[i]=blog[i+1];
         }
     }
     title.pop();
