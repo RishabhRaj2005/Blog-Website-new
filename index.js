@@ -2,7 +2,7 @@ import express from "express"
 import bodyParser from "body-parser"
 
 const app = express();
-const port = 3000;
+const port = "blog-website-new-a19e-rishabh-rajs-projects-5f4ec4eb.vercel.app";
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
