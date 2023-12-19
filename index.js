@@ -31,19 +31,16 @@ app.get("/delete",(req,res)=>{
 app.post("/delete",(req,res)=>{
     var toDel = req.body["dTitle"];
     var flag=0;
-    for(var i=0;i<title.length-1;i++){
+    for(var i=0;i<title.length;i++){
         if(title[i]===toDel){
-            flag=1;
-        }
-        if(flag===1){
-            title[i]=title[i+1];
-            blog[i]=blog[i+1];
+            flag=i;
+            break;
         }
     }
-    title.pop();
-    blog.pop();
+    title.splice(flag,(flag+1));
+    blog.splice(flag,(flag+1));
     res.redirect("/");
-})
+});
 
 app.listen(port,()=>{
     console.log(`The app is running on ${port}`);
